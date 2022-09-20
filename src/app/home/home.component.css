@@ -1,0 +1,90 @@
+*{
+  font-family: 'Arial';
+  font-size: 16px;
+}
+
+.home-whole-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1350px;
+}
+
+.home-container-one {
+  margin: 0 100px 0 0;
+}
+
+.home-container-two {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+}
+
+
+
+.cloud-image{ 
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 30px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  width:120px;
+  height:90px;
+  object-fit:scale-down;
+}
+
+.instruction{
+  font-weight:900;
+}
+
+.apply-input {
+  max-width: 100%;
+}
+
+.naming{
+  padding: 10px;
+}
+
+.gap{
+  margin-bottom: 30px;
+}
+
+.imagecontainer{
+  display:grid;
+  margin-top: 20px;
+  grid-template-columns: repeat(3,150px);
+
+}
+
+
+.spacing{
+  position:relative;
+}
+
+.radio-btn{
+  position: absolute;
+  bottom: 10px;
+  left: 15px;
+}
+
+.cloud-image:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+.button-container {
+  position: relative;
+}
+
+.cancel-button {
+  position: absolute;
+  top: 48px;
+}
+
+
+
+
+.right-cloud-image {
+  width: 100%;
+}
+

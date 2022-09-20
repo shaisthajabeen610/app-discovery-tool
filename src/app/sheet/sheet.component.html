@@ -1,0 +1,311 @@
+  <div> 
+    <div  >
+      <span >
+        <strong> Cloud Environment :</strong>
+       {{appcloud}}
+      </span>
+      <span class="aligning-description" >
+        <strong> Application Name : </strong>
+       {{ name | titlecase }}
+      </span>   
+      <span class="aligning-description">
+        <strong>No.of Applications :</strong>
+          {{appval}}
+  
+      </span>
+    
+     
+    </div>
+    <hr class="border-primary border-3 opacity-75">
+    <div>         
+         <span class="instructions" >
+          <strong>
+            INSTRUCTIONS:
+         </strong> </span>
+          <span  > Please provide the application details to provide our cloud recommendations.
+         </span>    
+    </div>
+    <hr class="border-primary border-3 opacity-75">
+    <div>Application Number : {{pageCountRenderer + 1}}</div>
+    <br>
+    
+   <table class="table" width=100%  border="2" cellspacing="3" align="center" display="flex">
+    <thead class="headercolour">
+      <th styles="text-align: left;">Application Related</th>
+      <th  styles="text-align: centre;">Analysis For Representation</th>
+      <th  styles="text-align: centre;">Scoring</th>
+    </thead>
+    <tr>
+       <td >Business Unit</td>
+       <td>
+        <select [(ngModel)]="dropsdownValue1" class="sizing"  (change) = "changeBusinessUnit($event)"> 
+            
+        <option *ngFor = 'let unit of businessUnit'>    {{ unit.label }}</option>
+      
+      </select>
+       </td>
+       <td>{{businessUnitScore}}</td>
+    </tr>
+    <tr>
+      <td>Application business functionality</td>
+      <td>
+        <select [(ngModel)]="dropsdownValue2" class="sizing"  (change) = "changeApplicationFunctionality($event)">
+          
+          <option *ngFor = 'let unit1 of applicationBusinessFuncionality'> {{ unit1.label }}</option>
+        
+        </select>
+      </td>
+      <td>{{businessfunScore}}</td>
+   </tr>
+   <tr>
+    <td>Application Name </td>
+    <td><select class="sizing" [(ngModel)]="dropsdownValue3">
+      
+      <option *ngFor = 'let unit1 of appName'> {{ unit1.label }}</option>
+    
+    </select></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Application type </td>
+    <td><select class="sizing" [(ngModel)]="dropsdownValue4" (change) = "changeApptype($event)">
+      
+      <option *ngFor = 'let unit1 of sapplicationType'> {{ unit1.label }}</option>
+    
+    </select></td>
+    <td>{{appScore }}</td>
+  </tr>
+  <tr>
+    <td>Application Code Platform</td>
+    <td><select class="sizing" [(ngModel)]="dropsdownValue5"  >
+     
+      <option *ngFor = 'let unit1 of appCode'> {{ unit1.label }}</option>
+    
+    </select></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Application Age</td>
+    <td><select  class="sizing" [(ngModel)]="dropsdownValue6" (change) = "changeAppAge($event)">
+     
+      <option *ngFor = 'let unit1 of appAge'> {{ unit1.label }}</option>
+    
+    </select></td>
+    <td>{{appAgeScore}}</td>
+  </tr>
+  <tr>
+    <td>Overall size estimation (lines of code)</td>
+    <td><select  class="sizing" [(ngModel)]="dropsdownValue7" (change) = "changeCodeSize($event)">
+      
+      <option *ngFor = 'let unit1 of codeSize'> {{ unit1.label }}</option>
+    
+    </select></td>
+    <td>{{codeSizeScore}}</td>
+  </tr>
+  <tr>
+    <td>Application users (numbers/profile)</td>
+    <td><select class="sizing"  [(ngModel)]="dropsdownValue8" (change) = "changeAppUsers($event)">
+      
+      <option *ngFor = 'let unit1 of appUsers'> {{ unit1.label }}</option>
+    
+    </select></td>
+    <td>{{appUsersScore}}</td>
+  </tr>
+  <tr>
+    <td>Business criticality</td>
+    <td><select  class="sizing" [(ngModel)]="dropsdownValue9" (change) = "changeCrticality($event)">
+      
+      <option *ngFor = 'let unit1 of businessCrticality'> {{ unit1.label }}</option>
+    
+    </select></td>
+    <td>{{criticalityScore}}</td>
+  </tr>
+  <tr>
+    <td colspan="3" class="headercolour">Application Architectural layers</td>
+   
+  </tr>
+  <tr>
+    <td>User Interface layer</td>
+    <td><select  class="sizing" [(ngModel)]="dropsdownValue10"  (change) = "changeLayer($event)">
+     
+      <option *ngFor = 'let unit1 of layer'> {{ unit1.label }}</option>
+    
+    </select></td>
+    <td>{{layerScore}}</td>
+  </tr>
+  <tr>
+    <td>Business logic layer </td>
+    <td><select   class="sizing" [(ngModel)]="dropsdownValue11" (change) = "changeLayer1($event)">
+      
+      <option *ngFor = 'let unit1 of layer1'> {{ unit1.label }}</option>
+    
+    </select></td>
+    <td>{{layerScore1}}</td>
+  </tr>
+  <tr>
+    <td>Persistent layer (Storing and Retrieving)</td>
+    <td><select   class="sizing" [(ngModel)]="dropsdownValue12" (change) = "changeLayer2($event)"> 
+       
+      <option *ngFor = 'let unit1 of layer2'> {{ unit1.label }}</option>  
+    </select></td>
+    <td>{{layerScore2}}</td>
+  </tr>
+  <tr>
+    <td>Batch Program layer</td>
+    <td><select  class="sizing" [(ngModel)]="dropsdownValue13" (change) = "changeLayer3($event)">  
+        
+      <option *ngFor = 'let unit1 of layer3'> {{ unit1.label }}</option>  
+    </select></td>
+    <td>{{layerScore3}}</td>
+    
+  </tr>
+  <tr>
+    <td>Transaction layer</td>
+    <td><select class="sizing"  [(ngModel)]="dropsdownValue14" (change) = "changeLayer4($event)">  
+       
+      <option *ngFor = 'let unit1 of layer4'> {{ unit1.label }}</option>  
+    </select></td>
+    <td>{{layerScore4}}</td>
+    
+  </tr>
+  <tr>
+    <td>Database layer</td>
+    <td><select class="sizing"  [(ngModel)]="dropsdownValue15" (change) = "changeLayer5($event)">  
+       
+      <option *ngFor = 'let unit1 of layer5'> {{ unit1.label }}</option>  
+    </select></td>
+    <td>{{layerScore5}}</td>
+  </tr>
+  <tr>
+    <td colspan="3" class="headercolour">Application Technology</td>
+    
+  </tr>
+  <tr>
+    <td>Development Tools / IDEs</td>
+    <td><select class="sizing" [(ngModel)]="dropsdownValue16" (change) = "changeLayer6($event)">    
+      
+      <option *ngFor = 'let unit1 of layer6'> {{ unit1.label }}</option>  
+    </select></td>
+    <td>{{layerScore6}}</td>
+  </tr><tr>
+    <td>Operating System</td>
+    <td><select class="sizing"  [(ngModel)]="dropsdownValue17">
+     
+      <option *ngFor = 'let unit1 of oS'> {{ unit1.label }}</option>
+    
+    </select></td>
+    <td></td>
+  </tr><tr>
+    <td>Web or Application Server</td>
+    <td><select  class="sizing" [(ngModel)]="dropsdownValue18"  (change) = "changeLayer7($event)">    
+      
+      <option *ngFor = 'let unit1 of layer7'> {{ unit1.label }}</option>  
+    </select></td>
+    <td>{{layerScore7}}</td>
+  </tr><tr>
+    <td>Other middleware</td>
+    <td><select class="sizing" [(ngModel)]="dropsdownValue19" (change) = "changeLayer8($event)">  
+       
+      <option *ngFor = 'let unit1 of layer8'> {{ unit1.label }}</option>  
+    </select></td>
+    <td>{{layerScore8}}</td>
+  </tr><tr>
+    <td>Frameworks used</td>
+    <td><select  class="sizing" [(ngModel)]="dropsdownValue20" (change) = "changeLayer9($event)">  
+        
+      <option *ngFor = 'let unit1 of layer9'> {{ unit1.label }}</option>  
+    </select></td>
+    <td>{{layerScore9}}</td>
+  </tr><tr>
+    <td colspan="3" class="headercolour">Application related Infrastructure </td>
+    
+  </tr><tr>
+    <td>Number of Servers </td>
+    <td><select class="sizing" [(ngModel)]="dropsdownValue21" (change) = "changeServers($event)"> 
+         
+      <option *ngFor = 'let unit1 of servers'> {{ unit1.label }}</option>  
+    </select></td>
+    <td>{{serversScore}}</td>
+  </tr><tr>
+    <td>Storage (SAN Storage Systems)</td>
+    <td><select class="sizing" [(ngModel)]="dropsdownValue22" (change) = "changeLayer10($event)">    
+      
+      <option *ngFor = 'let unit1 of layer10'> {{ unit1.label }}</option>  
+    </select></td>
+    <td>{{layerScore10}}</td>
+  </tr><tr>
+  </tr><tr>
+    <td>Networking (Firewall, Load balancer )</td>
+    <td><select class="sizing" [(ngModel)]="dropsdownValue23" (change) = "changeLayer11($event)">    
+      <option *ngFor = 'let unit1 of layer11'> {{ unit1.label }}</option>  
+    </select></td>
+    <td>{{layerScore11}}</td>
+  </tr><tr>
+    <td>Backups - Daily, weekly, yearly</td>
+    <td><select  class="sizing" [(ngModel)]="dropsdownValue24" (change) = "changeLayer12($event)">    
+      
+      <option *ngFor = 'let unit1 of layer12'> {{ unit1.label }}</option>  
+    </select></td>
+    <td>{{layerScore12}}</td>
+  </tr><tr>
+    <td>DR Strategy</td>
+    <td><select  class="sizing" [(ngModel)]="dropsdownValue25" (change) = "changeLayer13($event)">   
+       
+      <option *ngFor = 'let unit1 of layer13'> {{ unit1.label }}</option>  
+    </select></td>
+    <td>{{layerScore13}}</td>
+  </tr><tr>
+    <td colspan="3" class="headercolour">Business Impact & Process</td>
+    
+  </tr><tr>
+    <td>Impact of technical risks (impact of downtime, preferably in $USD)</td>
+    <td><select class="sizing" [(ngModel)]="dropsdownValue26"  (change) = "changeImpact($event)">  
+        
+      <option *ngFor = 'let unit1 of impact'> {{ unit1.label }}</option>  
+    </select></td>
+    <td>{{impactScore}}</td>
+  </tr><tr>
+    <td>Application lifecycle (# release, production/test/UA/acceptance)</td>
+    <td><select class="sizing"  [(ngModel)]="dropsdownValue27" (change) = "changeLayer14($event)"> 
+         
+      <option *ngFor = 'let unit1 of layer14'> {{ unit1.label }}</option>  
+    </select></td>
+    <td>{{layerScore14}}</td>
+  </tr><tr>
+    <td>DevOps model (insourced, outsourced, onshore, etc…) </td>
+    <td><select  class="sizing" [(ngModel)]="dropsdownValue28" (change) = "changeDevOps($event)">  
+      
+      <option *ngFor = 'let unit1 of devOps'> {{ unit1.label }}</option>  
+    </select></td>
+    <td>{{devOpsScore}}</td>
+  </tr><tr>
+    <td>Change strategy (dev, maintenance, renew, modernization, etc…)</td>
+    <td><select class="sizing" [(ngModel)]="dropsdownValue29" (change) = "changeLayer15($event)">   
+      
+      <option *ngFor = 'let unit1 of layer15'> {{ unit1.label }}</option>  
+    </select></td>
+    <td>{{layerScore15}}</td>
+  
+  </tr><tr>
+    <td>Application perception by IT Management (cost and maintainability)</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Application perception by Business Management (resilience)</td>
+    <td></td>
+    <td></td>
+  </tr><tr>
+    <td>What is the level of deployment process automation for provisioning & configuration?</td>
+    <td></td>
+    <td></td>
+  </tr>
+  </table>
+  </div>
+  <div class="next-button-container" >
+    <button class="btn btn-info next-button" 
+      [disabled] = "isNextButtonDisabled"
+      (click)="onSave()">Capture App Info
+    </button>
+  </div> 
+  

@@ -1,0 +1,46 @@
+<div class="logo">
+  <img  
+    src="https://user-images.githubusercontent.com/67311615/180364554-b99d5cfb-6777-4051-b02c-44d2855b1a24.png"
+    class="pactera-logo"
+   alt="pactera-logo">
+</div>
+
+<ng-wizard class="do" [config]="config" (stepChanged)="stepChanged($event)">
+  <ng-wizard-step
+    [title]="'Environment'"
+    [description]="'  '"
+    [canEnter]="isValidTypeBoolean"
+    [canExit]="isValidFunctionReturnsBoolean.bind(this)"
+  >
+    <br>
+    <app-home></app-home>
+  </ng-wizard-step>
+
+  <ng-wizard-step
+    [title]="'Application'"
+    [description]="'  '"
+    [canEnter]="isValidTypeBoolean"
+    [canExit]="isValidFunctionReturnsBoolean.bind(this)"
+  >
+    <br>
+      <app-sheet 
+        [appVal] = "appVal" 
+        [appCloud] = "appCloud"
+        [name] = "appName">
+
+      </app-sheet>
+    
+  </ng-wizard-step>
+
+  <ng-wizard-step
+    [title]="'Report'"
+    [description]="'   '"
+    [canEnter]="isValidFunctionReturnsObservable.bind(this)"
+    [canExit]="isValidFunctionReturnsBoolean.bind(this)"
+  >
+    <br>
+    <app-final-values></app-final-values>
+  </ng-wizard-step>
+
+</ng-wizard>
+

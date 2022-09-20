@@ -1,0 +1,44 @@
+<div id="content"  #content class="final-values-container">
+    <div class="temporory-logo-container">
+        <img class="temporory-logo" src="https://user-images.githubusercontent.com/67311615/180364554-b99d5cfb-6777-4051-b02c-44d2855b1a24.png" alt="">
+    </div>
+    <div>
+        <h6 class="Descriptive-thing">
+            Pactera Edge's Cloud Assessment Report - Experience the possibilities of cloud technologies today, and prepare for a data-driven tomorrow.
+        </h6>
+    </div>
+    <div >
+        <table width=100% border="2" cellspacing="3" align="center" display="flex">
+            
+            <thead>
+                <th>Applications</th>
+                <th>Score</th>
+                <th>Architecture Complexity</th>
+                <th>Impact</th>
+                <th>Piroritization</th>
+                <th>IaaS Cost Saving</th>
+                <th>PaaS App. Value</th>
+            </thead>
+        
+            <tr *ngFor="let obj of arr; let i=index">
+                <td> Application{{i+1}}  </td>
+                <td>{{obj.finalScore}}</td> 
+                <td>{{obj.finalScore}}</td>
+                <td>{{obj.impactScore}}</td>
+                <td>{{obj.prioritization}}</td>
+                <td>{{obj.iaasCost}}</td>
+                <td>{{obj.passApp}}</td> 
+
+            </tr> 
+        </table> 
+    </div>
+</div>  
+
+
+<div class="button-container">
+    <button class="naviagte-pricing"
+        class="btn btn-info download-button" 
+        (click)="downloadAsPDF()">
+        Download
+    </button>
+</div>

@@ -1,0 +1,88 @@
+<div class="home-whole-container">
+    <div class="home-container-one">
+        <div><p>Name Your Environment</p>
+        </div>
+        <div class="input-group mb-3">
+        
+            <input 
+            (input)="inputname($event)" type="text" class="form-control naming apply-input" 
+            placeholder="name" aria-label="Username"  
+            
+            aria-describedby="basic-addon1"  #firstname />          
+        
+        </div>
+        <div>
+            <p>Select Number Of Applications in your on-premises Environment</p>
+        </div>
+        <div>
+            <select   [(ngModel)]="selectedElement" class="form-select  gap apply-input"
+            aria-label="Default select example" (change)="onSelect($event)" >
+                <option [value]="1">1                
+                </option>
+                <option [value]="2">2</option>
+                <option [value]="3">3</option>
+                <option [value]="4">4</option>
+                <option [value]="5">5</option>
+            </select>
+        </div>
+        <div>Select The Cloud Provider as per your Business Requirement </div>
+        <div class="imagecontainer">
+            <div class="spacing">
+                <img  value="AWS" class="cloud-image"
+                
+                src="https://user-images.githubusercontent.com/67311615/178249633-cdffca99-f0f0-418f-a9a9-8b30071ba58c.PNG">
+                <div class="form-check radio-btn">
+                    <input class="form-check-input "
+                    value="AWS" 
+                    [(ngModel)]="cloud1"
+                    
+                (change)="selectedCloud($event)"type="radio" name="flexRadioDisabled" id="flexRadioDisabled" >
+                    
+                </div>
+
+            </div>
+            <div class="spacing">
+                <img value="Azure" class="cloud-image"
+                
+                src="https://user-images.githubusercontent.com/67311615/178197210-9321a595-9b1e-408a-b7aa-4c193d5c9808.png">
+                <div class="form-check radio-btn">
+                    <input class="form-check-input"
+                    value="Azure"
+                    [(ngModel)]="cloud1"
+                    (change)="selectedCloud($event)" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" >
+                    
+                </div>
+
+            </div>
+            <div class="spacing">
+                <img value="GCP" class="cloud-image"
+            src="https://user-images.githubusercontent.com/67311615/178249871-ecd80e42-9a09-45e2-bb28-16d798950b3b.PNG">
+                <div class="form-check radio-btn" >
+                    <input class="form-check-input"
+                    value="GCP" 
+                    [(ngModel)]="cloud1" type="radio" name="flexRadioDisabled" id="flexRadioDisabled"
+                    (change)="selectedCloud($event)"  >
+                    
+                </div>
+
+            </div>
+        </div>
+        <div class="button-container">
+            <button   
+                class="btn btn-info cancel-button" 
+                (click)="onCancel(firstname)">Cancel
+            </button>
+
+        </div>
+    
+    </div>
+
+    <div class="home-container-two">
+        <div class="right-cloud-image-container">
+            <img class="right-cloud-image"
+                src="https://user-images.githubusercontent.com/85378839/182129302-5529ad4c-7a3e-4283-a954-ea73573d7ace.png" 
+                alt=""
+            >
+        </div>
+    </div>
+</div>

@@ -1,0 +1,75 @@
+.final-values-container {
+  min-height: 220px;
+}
+
+.export{
+    margin:10px auto;
+    position:relative;
+    left: 50%;
+  }
+
+  .Descriptive-thing {
+    margin: 0 0 24px 0;
+    text-align: center;
+  }
+
+  td,tr{
+    background-color: white;
+  }
+  table{
+    border-collapse: collapse;
+    margin:0;
+    position: absolute;
+    left: 10px;
+    padding:0px;
+    width: 98.5%;
+  }
+  thead{
+    background-color: aqua;
+    text-align: center;
+  }
+  td {
+    padding: 0 15px;
+    width: 150px;
+    text-align: center;
+    border: 1px solid black;
+    padding: 5px;
+      
+  }
+ 
+  td {
+    padding: 0 15px;
+    width: 150px;
+    text-align: center;
+    border: 1px solid black;
+    padding: 5px;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%
+  }
+
+    body {
+    margin: 0
+    }
+
+    .button-container {
+      position: absolute; 
+      bottom: -61.5px;  
+    }
+
+
+.temporory-logo-container {
+  position: relative;
+  right: 10px;
+  display: none;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.temporory-logo {
+  height: 68px;
+}
+
+.temporory-logo-container.active {
+  display: flex;
+}
+    

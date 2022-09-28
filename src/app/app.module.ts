@@ -12,12 +12,20 @@ import { PassDataService } from './pass-data.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { environment } from 'src/environments/environment';
+import { getDatabase } from "firebase/database";
 
 
 const ngWizardConfig: NgWizardConfig = {
   theme: THEME.default
 };
-
+const firebaseConfig = {
+  // ...
+  // The value of `databaseURL` depends on the location of the database
+  databaseURL: "https://practice-demo-b0f52-default-rtdb.asia-southeast1.firebasedatabase.app/",
+};
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,8 +38,10 @@ const ngWizardConfig: NgWizardConfig = {
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
-  ],
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
+   ],
  
   providers: [PassDataService, CookieService],
   bootstrap: [AppComponent]

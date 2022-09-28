@@ -11,7 +11,12 @@ import {BlobServiceClient,AnonymousCredential,newPipeline } from '@azure/storage
 import { environment } from '../../environments/environment';
 import * as CryptoJS from 'crypto-js';
 
+import { initializeApp } from "firebase/app";
+import { getDatabase, ref, set} from "firebase/database";
+
 import { CookieService } from 'ngx-cookie-service';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { ReportDataService } from '../report-data.service';
 
 export interface MyData{
   finalScore:any,
@@ -67,7 +72,9 @@ export class FinalValuesComponent  implements OnInit,MyData, OnChanges{
     private activatedRoute:ActivatedRoute,
     private passDataService: PassDataService,
     private httpClient: HttpClient,
-    public cookie: CookieService
+    public cookie: CookieService,
+    private db: AngularFireDatabase,
+    private reportData: ReportDataService,
     )
     
     { 
@@ -105,7 +112,7 @@ export class FinalValuesComponent  implements OnInit,MyData, OnChanges{
     this.passDataService.sheetData.subscribe((data)=> {
       this.sheetData = data;
       this.envName = this.sheetData[0];
-      this.complexityArray.push(this.envName)
+      //this.complexityArray.push(this.envName)
       this.arr=[];
       for(let i=1; i<this.sheetData.length; i++) {
         console.log(this.sheetData[i],'updated data')
@@ -186,8 +193,22 @@ export class FinalValuesComponent  implements OnInit,MyData, OnChanges{
       
       this.cookie.set(this.key,JSON.stringify(this.complexityArray))
     }
+    
 
+    sendingDataToAPI(){
+     // const payload = this.complexityArray;
+      this.reportData.sendReportData( this.envName, this.complexityArray)
+      .subscribe(result =>{
+        console.log("data in API",result)
+        // this.countOfUsersByMonth= data;
+        // this.isCountOfUsersByMonth= true; this.isTopUsers= false;
+        // this.isCountOfSimulationdone= false; this.isCountOfLYPlansGenerated= false;
+        // this.isCountOfBasePlansGenerated= false;this.isCountOfOptimalPlansGenerated= false;
+      })
+    }
     downloadAsPDF(){
+     
+     this.sendingDataToAPI();
     let today = new Date();
     let dd = String(today.getDate()).padStart(2, '0');
     let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -216,8 +237,20 @@ export class FinalValuesComponent  implements OnInit,MyData, OnChanges{
        
        console.log(newArray,'text file data',this.complexityArray,"complex array")
        this.currentFile = new Angular2Txt(JSON.stringify(newArray), this.envName+ ' '+todayDate);
-
-
+      
+       const ref = this.db.list(this.complexityArray[0])
+       const database = getDatabase();
+       const data = {
+        name: "shaistha",
+        Skill : "angular"
+       }
+      //  set(ref(db, 'users/' + userId), {
+      //    username: "shaistha",
+      //    email: "hello",
+        
+      //  });
+       
+      ref.push(data);
        //code added from stackoverflow for web storage
 //        const accountName =environment.accountName;
 //        const containerName =environment.containerName;
